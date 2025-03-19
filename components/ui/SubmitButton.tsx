@@ -25,7 +25,7 @@ export default function SubmitButton({
   const isSubmitting = pending || loading;
 
   return (
-    <Button theme={theme} {...otherProps} disabled={loading || disabled} type="submit" className={className}>
+    <Button theme={theme} {...otherProps} disabled={isSubmitting || disabled} type="submit" className={className}>
       {isSubmitting ? (
         <div className="flex items-center justify-center gap-2">
           {children}

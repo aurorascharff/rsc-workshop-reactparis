@@ -9,7 +9,7 @@ export default function ClientServerPage() {
     'use server';
 
     const data = await prisma.contact.findMany();
-    return data[0].id;
+    return data[0].first as string;
   }
 
   // We can wrap our client components around server components without converting them to client components

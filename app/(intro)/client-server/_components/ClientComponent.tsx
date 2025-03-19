@@ -5,9 +5,10 @@ import React from 'react';
 type Props = {
   children?: React.ReactNode;
   content?: React.ReactNode;
+  mutateData: () => Promise<string>;
 };
 
-export default function ClientComponent({ children, content }: Props) {
+export default function ClientComponent({ children, content, mutateData }: Props) {
   // Without "use client", we cannot use onClick, useState, useEffect, window.location etc, custom hooks
   console.log('ClientComponent');
 
@@ -15,8 +16,9 @@ export default function ClientComponent({ children, content }: Props) {
     <div className="border-2 border-blue-500 p-4">
       {children}
       <button
-        onClick={() => {
-          return alert('Hello from the client!');
+        onClick={async () => {
+          const data = await mutateData();
+          alert(data);
         }}
       >
         Hello

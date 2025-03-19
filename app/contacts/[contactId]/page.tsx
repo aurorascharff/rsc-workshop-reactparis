@@ -3,7 +3,8 @@ import LinkButton from '@/components/ui/LinkButton';
 import { getContact } from '@/data/services/getContact';
 import GithubLogo from '@/public/github-mark.svg';
 import DeleteContactButton from './_components/DeleteContactButton';
-import FavoritePessimistic from './_components/FavoritePessimistic';
+
+import Favorite from './_components/Favorite';
 
 type PageProps = {
   params: Promise<{
@@ -39,7 +40,7 @@ export default async function ContactPage({ params }: PageProps) {
           ) : (
             <i>No Name</i>
           )}
-          <FavoritePessimistic contact={contact} />
+          <Favorite contact={contact} />
         </h1>
         {contact.position && <p className="text-2xl">{contact.position}</p>}
         {contact.email && (

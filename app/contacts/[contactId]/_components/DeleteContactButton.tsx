@@ -11,10 +11,10 @@ type Props = {
 export default function DeleteContactButton({ contactId }: Props) {
   return (
     <form
-      action={() => {
+      action={async () => {
         const response = confirm('Are you sure you want to delete this contact?');
         if (response) {
-          deleteContact(contactId);
+          await deleteContact(contactId);
         }
       }}
     >
